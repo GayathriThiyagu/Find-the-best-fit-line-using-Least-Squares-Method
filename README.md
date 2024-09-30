@@ -25,29 +25,39 @@ RegisterNumber: 212223100007
 
 import numpy as np
 import matplotlib.pyplot as plt
-X=np.array(eval(input()))
-Y=np.array(eval(input()))
-x_mean = np.mean(X)
-y_mean = np.mean(Y)
-length = len(X)
+X=np.array(eval(input("Enter X value:")))
+Y=np.array(eval(input("Enter Y value:")))
+X_mean=np.mean(X)
+Y_mean=np.mean(Y)
 num=0
 denom=0
-for i in range(length):
-    num+=(X[i]-x_mean)*(Y[i]-y_mean)
-    denom+=(X[i]-x_mean)**2
+for i in range(len(X)):
+    num+=(X[i]-X_mean)*(Y[i]-Y_mean)
+    denom+=(X[i]-X_mean)**2
 m=num/denom
-b=y_mean - m*x_mean
-print("Slope: ",m)   
+b=Y_mean-m*X_mean
+print("The m value is: ",m)
+print("The b value is: ",b)
+y_predicted=m*X+b
+print("The Y_Predicted value is: ",y_predicted)
+
+print("Slope: ",m)
 print("y-intercept: ",b)
-plt.plot(X)
-plt.plot(Y)
+plt.scatter(X,Y)
+plt.plot(X,y_predicted,color='pink')
+
 plt.xlabel("Hours")
-plt.ylabel("Score") 
-*/
+plt.ylabel("Score")
+plt.title("Hours VS Scores")
+plt.show()
+
 ```
 
 ## Output:
-![image](https://github.com/user-attachments/assets/0bbe0496-3e80-4fe7-9a57-b1931c4917b6)
+
+![Screenshot 2024-09-30 091127](https://github.com/user-attachments/assets/e78d565b-2d38-4649-b0ea-c42eb933c4c8)
+
+![Screenshot 2024-09-30 091135](https://github.com/user-attachments/assets/282709db-0508-46cf-940d-36e7cbdcb6a2)
 
 
 
